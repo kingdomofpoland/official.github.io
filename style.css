@@ -180,3 +180,12 @@ footer {
   padding: 12px 26px;
   font-size: 1.1rem;
 }
+
+.news-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
