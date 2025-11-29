@@ -70,15 +70,17 @@
       </div>
     </section>
 
-<section>
-<h2>お知らせ</h2>
+<section id="news">
+  <h2>お知らせ</h2>
   <div id="news-list"></div>
-<script>
+</section>
+      <script>
 async function loadNews() {
-  const repo = "republicofpoland/official.github.io"; 
+  const repo = "Poland-Kingdom/poland-kingdom.github.io"; // ←あなたのリポジトリに書き換え済
   const response = await fetch(`https://api.github.com/repos/${repo}/contents/news`);
   const files = await response.json();
 
+  // 日付順に並べ替え（新しい順）
   files.sort((a, b) => new Date(b.name) - new Date(a.name));
 
   const container = document.getElementById("news-list");
@@ -87,6 +89,7 @@ async function loadNews() {
     const mdResponse = await fetch(file.download_url);
     const mdText = await mdResponse.text();
 
+    // フロントマター抽出
     const frontMatterMatch = mdText.match(/^---\n([\s\S]*?)\n---/);
     let title = "タイトル不明";
     let date = "日付なし";
@@ -126,7 +129,7 @@ async function loadNews() {
 }
 loadNews();
 </script>
-  </section>
+
 
     <!-- 国家機関 -->
     <section>
@@ -187,5 +190,8 @@ loadNews();
   <footer>
     <p>&copy; 2025 Republic of Poland. All rights reserved.</p>
   </footer>
+  
 </body>
+
+
 </html>
