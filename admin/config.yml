@@ -1,17 +1,39 @@
 backend:
-  name: github
-  repo: YOUR_NAME/YOUR_REPO_NAME  # ←変更
+  name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "laws"
-    label: "法律"
-    folder: "laws"           # laws/ フォルダに markdown を保存
+
+  # ▼ お知らせ
+  - name: "news"
+    label: "お知らせ"
+    folder: "news"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "日付", name: "date", widget: "datetime" }
       - { label: "本文", name: "body", widget: "markdown" }
+
+  # ▼ 憲法
+  - name: "constitution"
+    label: "憲法ページ"
+    files:
+      - file: "constitution.md"
+        label: "憲法"
+        name: "constitution"
+        fields:
+          - { label: "本文", name: "body", widget: "markdown" }
+
+  # ▼ 法律（法制度）
+  - name: "law"
+    label: "法律ページ"
+    files:
+      - file: "law.md"
+        label: "法律"
+        name: "law"
+        fields:
+          - { label: "本文", name: "body", widget: "markdown" }
