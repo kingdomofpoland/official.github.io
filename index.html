@@ -55,7 +55,7 @@
 
 <script>
 async function loadNews() {
-  const response = await fetch('https://api.github.com/repos/あなたのユーザー名/あなたのリポジトリ名/contents/news');
+  const response = await fetch('https://api.github.com/repos/republicofpoland/official.github.io/contents/news');
   const files = await response.json();
 
   let container = document.getElementById("news-list");
