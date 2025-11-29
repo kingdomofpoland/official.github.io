@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: YOUR_NAME/YOUR_REPO_NAME  # ←変更
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "laws"
+    label: "法律"
+    folder: "laws"           # laws/ フォルダに markdown を保存
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "本文", name: "body", widget: "markdown" }
